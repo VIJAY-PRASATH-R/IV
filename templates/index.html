@@ -2,14 +2,19 @@
 <html>
 <head>
     <title>IV Planner & Connector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-<h1>IV Planner & Connector</h1>
-<p>Welcome to the platform</p>
+<div class="home-container">
+    <h1>IV Planner & Connector</h1>
+    <p>Plan and manage Industrial Visits effortlessly</p>
 
-<a href="/login">Login</a> |
-<a href="/register">Register</a>
+    <div class="home-buttons">
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+    </div>
+</div>
 
 </body>
 </html>
