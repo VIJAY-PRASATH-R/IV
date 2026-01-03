@@ -74,18 +74,23 @@ def student_dashboard():
         return redirect(url_for("login"))
     return render_template("student_dashboard.html")
 
-
 @app.route("/college")
 def college_dashboard():
-    return "<h1>College Dashboard</h1>"
+    if "user" not in session:
+        return redirect(url_for("login"))
+    return render_template("college_dashboard.html")
 
 @app.route("/provider")
 def provider_dashboard():
-    return "<h1>Service Provider Dashboard</h1>"
+    if "user" not in session:
+        return redirect(url_for("login"))
+    return render_template("provider_dashboard.html")
 
 @app.route("/admin")
 def admin_dashboard():
-    return "<h1>Admin Dashboard</h1>"
+    if "user" not in session:
+        return redirect(url_for("login"))
+    return render_template("admin_dashboard.html")
 
 # -------------------------------
 # Logout
