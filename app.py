@@ -70,7 +70,10 @@ def register():
 # -------------------------------
 @app.route("/student")
 def student_dashboard():
-    return "<h1>Student Dashboard</h1>"
+    if "user" not in session:
+        return redirect(url_for("login"))
+    return render_template("student_dashboard.html")
+
 
 @app.route("/college")
 def college_dashboard():
