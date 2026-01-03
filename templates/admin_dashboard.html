@@ -3,50 +3,57 @@
 <head>
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
 <div class="dashboard">
 
-    <div class="dashboard-header">
-        <h1>Admin Dashboard</h1>
-        <a href="/logout" class="logout-btn">Logout</a>
+    <div class="navbar">
+        <h2>IV Planner & Connector</h2>
+        <div>
+            <span>Admin</span>
+            <a href="/logout">Logout</a>
+        </div>
     </div>
 
     <div class="dashboard-body">
 
         <div class="sidebar">
-            <h3>Admin Menu</h3>
-            <a href="#">Approve Providers</a>
-            <a href="#">Manage Users</a>
-            <a href="#">Platform Stats</a>
+            <a href="#">Users</a>
+            <a href="#">Providers</a>
+            <a href="#">Analytics</a>
         </div>
 
         <div class="main-content">
 
             <div class="stats">
-                <div class="stat-box">
-                    <h2>120</h2>
-                    <p>Total Users</p>
-                </div>
-                <div class="stat-box">
-                    <h2>35</h2>
-                    <p>Colleges</p>
-                </div>
-                <div class="stat-box">
-                    <h2>18</h2>
-                    <p>Providers</p>
-                </div>
+                <div class="stat-box"><h2>120</h2><p>Users</p></div>
+                <div class="stat-box"><h2>35</h2><p>Colleges</p></div>
+                <div class="stat-box"><h2>18</h2><p>Providers</p></div>
             </div>
 
             <div class="section-card">
-                <h3>System Overview</h3>
-                <p>All systems operational.</p>
+                <h3>Platform Growth</h3>
+                <canvas id="adminChart"></canvas>
             </div>
 
         </div>
     </div>
 </div>
+
+<script>
+new Chart(document.getElementById("adminChart"), {
+    type: "bar",
+    data: {
+        labels: ["Students", "Colleges", "Providers"],
+        datasets: [{
+            data: [70, 35, 18],
+            backgroundColor: ["#667eea", "#48bb78", "#f6ad55"]
+        }]
+    }
+});
+</script>
 
 </body>
 </html>
