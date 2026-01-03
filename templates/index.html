@@ -1,19 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>IV Planner & Connector</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-<div class="home-container">
-    <h1>IV Planner & Connector</h1>
-    <p>Plan and manage Industrial Visits effortlessly</p>
+<!-- HERO SECTION -->
+<div class="landing">
 
-    <div class="home-buttons">
-        <a href="/login">Login</a>
-        <a href="/register">Register</a>
+    <div class="landing-content">
+        <h1>IV Planner & Connector</h1>
+        <p>
+            A unified platform connecting <b>Students</b>, <b>Colleges</b>, and
+            <b>Industry Providers</b> to plan, manage, and participate in
+            Industrial Visits seamlessly.
+        </p>
+
+        <div class="cta-buttons">
+            <a href="/login" class="primary-btn">Login</a>
+            <a href="/register" class="secondary-btn">Get Started</a>
+        </div>
     </div>
+
+</div>
+
+<!-- FEATURES -->
+<div class="features">
+
+    <div class="feature-card">
+        <h3>🎓 Students</h3>
+        <p>Explore IV opportunities, apply easily, and track your application status.</p>
+    </div>
+
+    <div class="feature-card">
+        <h3>🏫 Colleges</h3>
+        <p>Plan IVs, manage approvals, and coordinate with multiple providers.</p>
+    </div>
+
+    <div class="feature-card">
+        <h3>🏭 Providers</h3>
+        <p>Publish availability, manage slots, and connect with institutions.</p>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    <p>© 2026 IV Planner & Connector • Built by Vijay Prasath R</p>
 </div>
 
 </body>
