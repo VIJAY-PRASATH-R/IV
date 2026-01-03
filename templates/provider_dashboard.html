@@ -1,52 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Service Provider Dashboard</title>
+    <title>Provider Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
 <div class="dashboard">
 
-    <div class="dashboard-header">
-        <h1>Service Provider Dashboard</h1>
-        <a href="/logout" class="logout-btn">Logout</a>
+    <div class="navbar">
+        <h2>IV Planner & Connector</h2>
+        <div>
+            <span>Provider</span>
+            <a href="/logout">Logout</a>
+        </div>
     </div>
 
     <div class="dashboard-body">
 
         <div class="sidebar">
-            <h3>Provider Menu</h3>
-            <a href="#">Add Availability</a>
-            <a href="#">IV Requests</a>
-            <a href="#">Company Profile</a>
+            <a href="#">Add Slots</a>
+            <a href="#">Requests</a>
+            <a href="#">Profile</a>
         </div>
 
         <div class="main-content">
 
             <div class="stats">
-                <div class="stat-box">
-                    <h2>8</h2>
-                    <p>Slots Posted</p>
-                </div>
-                <div class="stat-box">
-                    <h2>3</h2>
-                    <p>Pending Approvals</p>
-                </div>
-                <div class="stat-box">
-                    <h2>12</h2>
-                    <p>Colleges Reached</p>
-                </div>
+                <div class="stat-box"><h2>8</h2><p>Slots</p></div>
+                <div class="stat-box"><h2>3</h2><p>Pending</p></div>
+                <div class="stat-box"><h2>5</h2><p>Colleges</p></div>
             </div>
 
             <div class="section-card">
-                <h3>Upcoming Visits</h3>
-                <p>No visits scheduled.</p>
+                <h3>Slot Utilization</h3>
+                <canvas id="providerChart"></canvas>
             </div>
 
         </div>
     </div>
 </div>
+
+<script>
+new Chart(document.getElementById("providerChart"), {
+    type: "line",
+    data: {
+        labels: ["Week 1", "Week 2", "Week 3"],
+        datasets: [{
+            label: "Booked Slots",
+            data: [2, 5, 7],
+            borderColor: "#667eea",
+            fill: false
+        }]
+    }
+});
+</script>
 
 </body>
 </html>
