@@ -7,23 +7,16 @@
 <div class="container">
     <h2>Login</h2>
 
-    <form>
-        <label>Email</label>
-        <input type="email" placeholder="Enter email">
+<form method="POST">
+    <label>Email</label>
+    <input type="email" name="email" required>
 
-        <label>Password</label>
-        <input type="password" placeholder="Enter password">
+    <label>Password</label>
+    <input type="password" name="password" required>
 
-        <label>Role</label>
-        <select>
-            <option>Student</option>
-            <option>College</option>
-            <option>Service Provider</option>
-            <option>Admin</option>
-        </select>
+    <button type="submit">Login</button>
+</form>
 
-        <button type="submit">Login</button>
-    </form>
 
     <div class="center">
         <a href="/register">Create an account</a>
