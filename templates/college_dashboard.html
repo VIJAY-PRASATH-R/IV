@@ -3,50 +3,57 @@
 <head>
     <title>College Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
 <div class="dashboard">
 
-    <div class="dashboard-header">
-        <h1>College Dashboard</h1>
-        <a href="/logout" class="logout-btn">Logout</a>
+    <div class="navbar">
+        <h2>IV Planner & Connector</h2>
+        <div>
+            <span>College</span>
+            <a href="/logout">Logout</a>
+        </div>
     </div>
 
     <div class="dashboard-body">
 
         <div class="sidebar">
-            <h3>College Menu</h3>
-            <a href="#">Create IV Plan</a>
-            <a href="#">IV Requests</a>
-            <a href="#">MoU Status</a>
+            <a href="#">Create IV</a>
+            <a href="#">Requests</a>
+            <a href="#">MoUs</a>
         </div>
 
         <div class="main-content">
 
             <div class="stats">
-                <div class="stat-box">
-                    <h2>4</h2>
-                    <p>Active IVs</p>
-                </div>
-                <div class="stat-box">
-                    <h2>2</h2>
-                    <p>Pending Requests</p>
-                </div>
-                <div class="stat-box">
-                    <h2>5</h2>
-                    <p>Partners</p>
-                </div>
+                <div class="stat-box"><h2>4</h2><p>Active IVs</p></div>
+                <div class="stat-box"><h2>2</h2><p>Pending</p></div>
+                <div class="stat-box"><h2>6</h2><p>Partners</p></div>
             </div>
 
             <div class="section-card">
-                <h3>Recent IV Requests</h3>
-                <p>No new requests.</p>
+                <h3>IV Approval Status</h3>
+                <canvas id="collegeChart"></canvas>
             </div>
 
         </div>
     </div>
 </div>
+
+<script>
+new Chart(document.getElementById("collegeChart"), {
+    type: "pie",
+    data: {
+        labels: ["Approved", "Pending"],
+        datasets: [{
+            data: [4, 2],
+            backgroundColor: ["green", "orange"]
+        }]
+    }
+});
+</script>
 
 </body>
 </html>
