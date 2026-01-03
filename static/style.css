@@ -1,4 +1,4 @@
-/* ================= GLOBAL RESET ================= */
+/* ================= RESET ================= */
 * {
     margin: 0;
     padding: 0;
@@ -7,8 +7,8 @@
 
 /* ================= BODY ================= */
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #667eea, #764ba2);
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
     min-height: 100vh;
 }
 
@@ -18,44 +18,41 @@ a {
     color: inherit;
 }
 
-/* ================= FORMS (LOGIN / REGISTER) ================= */
+/* ================= FORMS ================= */
 .container {
     width: 360px;
     background: white;
     padding: 25px;
-    border-radius: 10px;
-    margin: 80px auto;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    border-radius: 12px;
+    margin: 90px auto;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
 .container h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: #333;
 }
 
 label {
-    font-size: 14px;
     font-weight: bold;
-    color: #555;
+    font-size: 14px;
 }
 
 input, select {
     width: 100%;
     padding: 10px;
-    margin-top: 6px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
+    margin: 8px 0 16px;
     border-radius: 6px;
+    border: 1px solid #ccc;
 }
 
 button {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background: #667eea;
     color: white;
-    border: none;
     border-radius: 6px;
+    border: none;
     font-size: 16px;
     cursor: pointer;
 }
@@ -64,82 +61,43 @@ button:hover {
     background: #5a67d8;
 }
 
-.center {
-    text-align: center;
-    margin-top: 15px;
-}
-
-.center a {
-    color: #667eea;
-    font-weight: bold;
-}
-
-/* ================= HOME / INDEX PAGE ================= */
-.home-container {
-    background: white;
-    width: 450px;
-    padding: 35px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    text-align: center;
-    margin: 120px auto;
-}
-
-.home-container h1 {
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.home-container p {
-    color: #666;
-    margin-bottom: 25px;
-}
-
-.home-buttons a {
-    display: inline-block;
-    margin: 10px;
-    padding: 12px 25px;
-    background: #667eea;
-    color: white;
-    border-radius: 6px;
-    font-weight: bold;
-}
-
-.home-buttons a:hover {
-    background: #5a67d8;
-}
-
-/* ================= DASHBOARD COMMON ================= */
-.dashboard {
-    width: 95%;
-    max-width: 1200px;
-    margin: 30px auto;
-}
-
-.dashboard-header {
+/* ================= NAVBAR ================= */
+.navbar {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    padding: 16px 30px;
+    border-radius: 14px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
 }
 
-.dashboard-header h1 {
+.navbar h2 {
     color: white;
 }
 
-.logout-btn {
+.navbar span {
+    color: white;
+    font-size: 14px;
+}
+
+.navbar a {
     background: #e53e3e;
-    padding: 10px 18px;
+    padding: 8px 14px;
     color: white;
     border-radius: 6px;
     font-weight: bold;
 }
 
-.logout-btn:hover {
-    background: #c53030;
+/* ================= DASHBOARD ================= */
+.dashboard {
+    width: 95%;
+    max-width: 1300px;
+    margin: 30px auto;
 }
 
-/* ================= DASHBOARD BODY ================= */
+/* ================= LAYOUT ================= */
 .dashboard-body {
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -150,12 +108,11 @@ button:hover {
 .sidebar {
     background: white;
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 14px;
 }
 
 .sidebar h3 {
     margin-bottom: 15px;
-    color: #333;
 }
 
 .sidebar a {
@@ -163,9 +120,8 @@ button:hover {
     padding: 12px;
     margin-bottom: 10px;
     background: #f4f6f8;
-    border-radius: 6px;
+    border-radius: 8px;
     font-weight: bold;
-    color: #333;
 }
 
 .sidebar a:hover {
@@ -190,43 +146,67 @@ button:hover {
 .stat-box {
     background: white;
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 14px;
     text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.stat-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.15);
 }
 
 .stat-box h2 {
-    color: #667eea;
     font-size: 32px;
+    color: #667eea;
 }
 
-.stat-box p {
-    color: #666;
-    font-size: 14px;
+/* ================= ACTION CARDS ================= */
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
-/* ================= SECTION CARDS ================= */
+.action-card {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 30px;
+    border-radius: 14px;
+    text-align: center;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.action-card:hover {
+    transform: scale(1.05);
+}
+
+/* ================= SECTION CARD ================= */
 .section-card {
     background: white;
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 14px;
 }
 
-.section-card h3 {
-    margin-bottom: 10px;
-    color: #333;
+/* ================= BADGES ================= */
+.badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
 }
 
-.section-card p {
-    color: #666;
-}
+.badge-approved { background: green; color: white; }
+.badge-pending { background: orange; color: white; }
+.badge-rejected { background: red; color: white; }
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 900px) {
     .dashboard-body {
         grid-template-columns: 1fr;
     }
-
-    .stats {
+    .stats, .action-grid {
         grid-template-columns: 1fr;
     }
 }
