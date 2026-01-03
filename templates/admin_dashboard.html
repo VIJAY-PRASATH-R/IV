@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <div class="dashboard-header">
+        <h1>Admin Dashboard</h1>
+        <a href="/logout" class="logout-btn">Logout</a>
+    </div>
+
+    <div class="dashboard-body">
+
+        <div class="sidebar">
+            <h3>Admin Menu</h3>
+            <a href="#">Approve Providers</a>
+            <a href="#">Manage Users</a>
+            <a href="#">Platform Stats</a>
+        </div>
+
+        <div class="main-content">
+
+            <div class="stats">
+                <div class="stat-box">
+                    <h2>120</h2>
+                    <p>Total Users</p>
+                </div>
+                <div class="stat-box">
+                    <h2>35</h2>
+                    <p>Colleges</p>
+                </div>
+                <div class="stat-box">
+                    <h2>18</h2>
+                    <p>Providers</p>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h3>System Overview</h3>
+                <p>All systems operational.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
