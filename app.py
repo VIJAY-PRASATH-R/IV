@@ -85,6 +85,17 @@ def provider_dashboard():
     if "user" not in session:
         return redirect(url_for("login"))
     return render_template("provider_dashboard.html")
+@app.route("/provider/add-iv", methods=["GET", "POST"])
+def provider_add_iv():
+    if "user" not in session:
+        return redirect(url_for("login"))
+
+    if request.method == "POST":
+        # later we store this in DB
+        return redirect(url_for("provider_dashboard"))
+
+    return render_template("provider_add_iv.html")
+
 
 @app.route("/admin")
 def admin_dashboard():
