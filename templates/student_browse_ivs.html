@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Browse IVs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="dashboard">
+    <div class="navbar">
+        <h2>IV Planner & Connector</h2>
+        <div class="nav-right">
+            <span>Student</span>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Available Industrial Visits</h3>
+
+        <table>
+            <tr>
+                <th>Company</th>
+                <th>IV Title</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>ABC Industries</td>
+                <td>Factory Tour</td>
+                <td>25-03-2026</td>
+                <td><button>Apply</button></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
