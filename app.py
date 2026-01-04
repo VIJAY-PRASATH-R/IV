@@ -85,6 +85,12 @@ def provider_dashboard():
     if "user" not in session:
         return redirect(url_for("login"))
     return render_template("provider_dashboard.html")
+@app.route("/provider/my-ivs")
+def provider_my_ivs():
+    if "user" not in session:
+        return redirect(url_for("login"))
+    return render_template("provider_my_ivs.html")
+
 @app.route("/provider/add-iv", methods=["GET", "POST"])
 def provider_add_iv():
     if "user" not in session:
