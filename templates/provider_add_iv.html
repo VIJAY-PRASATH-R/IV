@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add IV Availability</title>
+    <title>Add IV</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
 <div class="dashboard">
-
     <div class="navbar">
         <h2>IV Planner & Connector</h2>
         <div class="nav-right">
@@ -17,21 +16,20 @@
     </div>
 
     <div class="section">
-        <h3>Add Industrial Visit Availability</h3>
+        <h3>Add Industrial Visit</h3>
 
-        <form method="POST">
-
+        <form>
             <label>Company Name</label>
-            <input type="text" required>
+            <input type="text">
 
             <label>IV Title</label>
-            <input type="text" required>
+            <input type="text">
 
             <label>Date</label>
-            <input type="date" required>
+            <input type="date">
 
             <label>Total Slots</label>
-            <input type="number" required>
+            <input type="number">
 
             <label>Eligible Branches</label>
             <select multiple>
@@ -42,10 +40,8 @@
             </select>
 
             <button type="submit">Publish IV</button>
-
         </form>
     </div>
-
 </div>
 
 </body>
