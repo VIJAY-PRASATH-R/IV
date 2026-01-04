@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My IVs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <div class="navbar">
+        <h2>IV Planner & Connector</h2>
+        <div class="nav-right">
+            <span>Provider</span>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>My Published Industrial Visits</h3>
+
+        <table>
+            <tr>
+                <th>IV Title</th>
+                <th>Date</th>
+                <th>Slots</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Factory Visit</td>
+                <td>12-03-2026</td>
+                <td>50</td>
+                <td><span class="badge badge-pending">Pending</span></td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>
