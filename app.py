@@ -4,25 +4,13 @@ app = Flask(__name__)
 app.secret_key = "iv_planner_secret_key"
 
 # -------------------------------
-# Dummy users (temporary)
+# Dummy users
 # -------------------------------
 users = {
-    "student@example.com": {
-        "password": "student123",
-        "role": "student"
-    },
-    "college@example.com": {
-        "password": "college123",
-        "role": "college"
-    },
-    "provider@example.com": {
-        "password": "provider123",
-        "role": "provider"
-    },
-    "admin@example.com": {
-        "password": "admin123",
-        "role": "admin"
-    }
+    "student@example.com": {"password": "student123", "role": "student"},
+    "college@example.com": {"password": "college123", "role": "college"},
+    "provider@example.com": {"password": "provider123", "role": "provider"},
+    "admin@example.com": {"password": "admin123", "role": "admin"},
 }
 
 # -------------------------------
@@ -45,69 +33,19 @@ def login():
             session["user"] = email
             session["role"] = users[email]["role"]
 
-            if session["role"] == "student":
+            role = session["role"]
+            if role == "student":
                 return redirect(url_for("student_dashboard"))
-            elif session["role"] == "college":
+            if role == "college":
                 return redirect(url_for("college_dashboard"))
-            elif session["role"] == "provider":
+            if role == "provider":
                 return redirect(url_for("provider_dashboard"))
-            elif session["role"] == "admin":
+            if role == "admin":
                 return redirect(url_for("admin_dashboard"))
 
-        return "Invalid email or password"
+        return "Invalid credentials"
 
     return render_template("login.html")
-
-# -------------------------------
-# Register (UI only for now)
-# -------------------------------
-@app.route("/register")
-def register():
-    return render_template("register.html")
-
-# -------------------------------
-# Dashboards
-# -------------------------------
-@app.route("/student")
-def student_dashboard():
-    if "user" not in session:
-        return redirect(url_for("login"))
-    return render_template("student_dashboard.html")
-
-@app.route("/college")
-def college_dashboard():
-    if "user" not in session:
-        return redirect(url_for("login"))
-    return render_template("college_dashboard.html")
-
-@app.route("/provider")
-def provider_dashboard():
-    if "user" not in session:
-        return redirect(url_for("login"))
-    return render_template("provider_dashboard.html")
-@app.route("/provider/my-ivs")
-def provider_my_ivs():
-    if "user" not in session:
-        return redirect(url_for("login"))
-    return render_template("provider_my_ivs.html")
-
-@app.route("/provider/add-iv", methods=["GET", "POST"])
-def provider_add_iv():
-    if "user" not in session:
-        return redirect(url_for("login"))
-
-    if request.method == "POST":
-        # later we store this in DB
-        return redirect(url_for("provider_dashboard"))
-
-    return render_template("provider_add_iv.html")
-
-
-@app.route("/admin")
-def admin_dashboard():
-    if "user" not in session:
-        return redirect(url_for("login"))
-    return render_template("admin_dashboard.html")
 
 # -------------------------------
 # Logout
@@ -118,7 +56,69 @@ def logout():
     return redirect(url_for("login"))
 
 # -------------------------------
-# Run app
+# Dashboards
+# -------------------------------
+@app.route("/student")
+def student_dashboard():
+    if "user" not in session:
+        return redirect(url_for("login"))
+    return render_template("student_dashboard.html")
+
+
+@app.route("/college")
+def college_dashboard():
+    if "user" not in session:
+        return redirect(url_for("login"))
+    return render_template("college_dashboard.html")
+
+
+@app.route("/provider")
+def provider_dashboard():
+    if "user" not in session:
+        return redirect(url_for("login"))
+    return render_template("provider_dashboard.html")
+
+
+@app.route("/admin")
+def admin_dashboard():
+    if "user" not in session:
+        return redirect(url_for("login"))
+    return render_template("admin_dashboard.html")
+
+# -------------------------------
+# DAY 5 – IV WORKFLOW (UI ONLY)
+# -------------------------------
+
+# Provider
+@app.route("/provider/add-iv", methods=["GET", "POST"])
+def provider_add_iv():
+    if "user" not in session:
+        return redirect(url_for("login"))
+    return render_template("provider_add_iv.html")
+
+
+@app.route("/provider/my-ivs")
+def provider_my_ivs():
+    if "user" not in session:
+        return redirect(url_for("login"))
+    return render_template("provider_my_ivs.html")
+
+
+# College
+@app.route("/college/review-ivs")
+def college_review_ivs():
+    if "user" not in session:
+        return redirect(url_for("login"))
+    return render_template("college_review_ivs.html")
+
+
+# Student
+@app.route("/student/browse-ivs")
+def student_browse_ivs():
+    if "user" not in session:
+        return redirect(url_for("login"))
+    return render_template("student_browse_ivs.html")
+
 # -------------------------------
 if __name__ == "__main__":
     app.run(debug=True)
