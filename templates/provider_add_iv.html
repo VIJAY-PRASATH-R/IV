@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add IV Availability</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <div class="navbar">
+        <h2>IV Planner & Connector</h2>
+        <div class="nav-right">
+            <span>Provider</span>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Add Industrial Visit Availability</h3>
+
+        <form method="POST">
+
+            <label>Company Name</label>
+            <input type="text" required>
+
+            <label>IV Title</label>
+            <input type="text" required>
+
+            <label>Date</label>
+            <input type="date" required>
+
+            <label>Total Slots</label>
+            <input type="number" required>
+
+            <label>Eligible Branches</label>
+            <select multiple>
+                <option>CSE</option>
+                <option>IT</option>
+                <option>ECE</option>
+                <option>EEE</option>
+            </select>
+
+            <button type="submit">Publish IV</button>
+
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>
